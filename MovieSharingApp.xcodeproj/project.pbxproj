@@ -35,6 +35,8 @@
 		7E3A3B6B1A8E7F020044DFA9 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3A3B6A1A8E7F020044DFA9 /* FeedViewController.swift */; };
 		7E3A3B6D1A8E7F520044DFA9 /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3A3B6C1A8E7F520044DFA9 /* MovieViewController.swift */; };
 		7E3A3B6F1A8E80550044DFA9 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3A3B6E1A8E80550044DFA9 /* SlideMenuController.swift */; };
+		7E3A3B711A8F2D210044DFA9 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3A3B701A8F2D210044DFA9 /* ImageTableViewCell.swift */; };
+		7E3A3B751A8F3A510044DFA9 /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3A3B741A8F3A510044DFA9 /* TextTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		7E3A3B6A1A8E7F020044DFA9 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		7E3A3B6C1A8E7F520044DFA9 /* MovieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
 		7E3A3B6E1A8E80550044DFA9 /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
+		7E3A3B701A8F2D210044DFA9 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
+		7E3A3B741A8F3A510044DFA9 /* TextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +146,8 @@
 				7E3A3B6E1A8E80550044DFA9 /* SlideMenuController.swift */,
 				7E3A3AFC1A8D85070044DFA9 /* AppDelegate.swift */,
 				7E3A3B021A8D85070044DFA9 /* Main.storyboard */,
+				7E3A3B701A8F2D210044DFA9 /* ImageTableViewCell.swift */,
+				7E3A3B741A8F3A510044DFA9 /* TextTableViewCell.swift */,
 				7E3A3B6C1A8E7F520044DFA9 /* MovieViewController.swift */,
 				7E3A3B6A1A8E7F020044DFA9 /* FeedViewController.swift */,
 				7E3A3B681A8E7EC70044DFA9 /* LeftViewController.swift */,
@@ -307,6 +313,8 @@
 				7E3A3B451A8D8A460044DFA9 /* CreateAccountViewController.swift in Sources */,
 				7E3A3B6D1A8E7F520044DFA9 /* MovieViewController.swift in Sources */,
 				7E3A3B431A8D8A2E0044DFA9 /* LoginViewController.swift in Sources */,
+				7E3A3B711A8F2D210044DFA9 /* ImageTableViewCell.swift in Sources */,
+				7E3A3B751A8F3A510044DFA9 /* TextTableViewCell.swift in Sources */,
 				7E3A3B471A8D8B580044DFA9 /* Global.swift in Sources */,
 				7E3A3B691A8E7EC70044DFA9 /* LeftViewController.swift in Sources */,
 				7E3A3B6B1A8E7F020044DFA9 /* FeedViewController.swift in Sources */,

@@ -20,5 +20,45 @@ class Global {
         
         
     }
+    //Calculate time difference
     
+    
+    class func calculateTimeDifference(date:NSDate) -> String {
+    
+    let interval = NSDate().timeIntervalSinceDate(date)
+    switch interval {
+    case 0...60:
+        return("\(Int(interval)) Seconds")
+    case 61...3600:
+        return("\(Int(interval)/60) Minutes")
+    case 3600...86400:
+        return("\(Int(interval)/3600) Hours")
+    case 86401...2600000:
+        return("\(Int(interval)/86400) Days")
+    case 2600001...31000000:
+        return("\(Int(interval)/2600000) Weeks")
+    case 31000000...99999999:
+        return("\(Int(interval)/31000000) Years")
+    default:
+        return "Forever"
+        
+    }
+    
+    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
 }

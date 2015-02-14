@@ -276,13 +276,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="140" id="j5a-5C-7Dt">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="140" id="j5a-5C-7Dt" customClass="ImageTableViewCell" customModule="MovieSharingApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j5a-5C-7Dt" id="qf0-Yj-rd6">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="first" translatesAutoresizingMaskIntoConstraints="NO" id="Md3-yf-qmG">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Md3-yf-qmG">
                                                     <rect key="frame" x="255" y="8" width="112" height="124"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RiP-Le-E5U">
@@ -306,8 +306,14 @@
                                                 </textView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imageOfMovie" destination="Md3-yf-qmG" id="82y-lM-WpX"/>
+                                            <outlet property="messageTextView" destination="PVc-Lp-Mge" id="T2o-l3-YcS"/>
+                                            <outlet property="timeAgoLabel" destination="cxt-Xz-tMa" id="cr1-5f-2jc"/>
+                                            <outlet property="usernameTextField" destination="RiP-Le-E5U" id="p9P-1H-yo6"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="textCell" rowHeight="107" id="JCC-1o-PwS">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="textCell" rowHeight="107" id="JCC-1o-PwS" customClass="TextTableViewCell" customModule="MovieSharingApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JCC-1o-PwS" id="XxD-1z-poc">
@@ -333,6 +339,11 @@
                                                 </textView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="message" destination="AdN-AC-hwE" id="fXb-dX-pis"/>
+                                            <outlet property="timeAgoLabel" destination="hwV-u1-ZL2" id="IHB-dr-q2d"/>
+                                            <outlet property="usernameLabel" destination="BIk-0T-Pe5" id="SaA-eP-JqR"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -348,6 +359,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableView" destination="SEr-qA-2MN" id="BIc-1d-X9z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yjw-8N-FYW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -379,7 +393,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
         <image name="menu" width="19" height="16"/>
     </resources>
     <color key="tintColor" red="0.95202172340264468" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
