@@ -11,31 +11,41 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    @IBOutlet weak var alreadyLoggedInLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var slider: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.slider.hidden = true
-        self.slideMenuController()?.openLeft()
+        //self.slideMenuController()?.openLeft()
         // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
+        
+        
     }
     
     
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+    override func viewDidAppear(animated: Bool) {
+        
+        if PFUser.currentUser() != nil {
+            alreadyLoggedInLabel.hidden = false
+            alreadyLoggedInLabel.text = "\(PFUser.currentUser().username) is already logged in"
+        
+            
+            
+        }else{
+            alreadyLoggedInLabel.hidden = true
+            
+            
+        }
+        
     }
-    */
     
     @IBAction func loginButtonPressed(sender: AnyObject) {
         
