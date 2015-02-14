@@ -346,6 +346,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="SSO-Ju-NO8" id="jSw-U6-z6s"/>
+                                    <outlet property="delegate" destination="SSO-Ju-NO8" id="hd7-At-k2B"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -373,10 +377,10 @@
             </objects>
             <point key="canvasLocation" x="1371.5" y="-872.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Post View Controller-->
         <scene sceneID="ey0-KN-LKz">
             <objects>
-                <viewController id="tkW-FR-tcR" sceneMemberID="viewController">
+                <viewController id="tkW-FR-tcR" customClass="CreatePostViewController" customModule="MovieSharingApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oEO-E1-zsh"/>
                         <viewControllerLayoutGuide type="bottom" id="EuJ-q3-CBt"/>
@@ -389,8 +393,16 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="New Post" id="81p-jg-NbY">
-                                        <barButtonItem key="leftBarButtonItem" title="back" id="Qok-Pg-2I4"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Post" id="lwo-dD-Rt5"/>
+                                        <barButtonItem key="leftBarButtonItem" title="back" id="Qok-Pg-2I4">
+                                            <connections>
+                                                <action selector="backButtonPressed:" destination="tkW-FR-tcR" id="uIE-6V-pXb"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Post" id="lwo-dD-Rt5">
+                                            <connections>
+                                                <action selector="postButtonPressed:" destination="tkW-FR-tcR" id="oVo-Ce-6YZ"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -435,6 +447,9 @@
                                 <state key="normal" title="search">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="searchMovieButtonTapped:" destination="tkW-FR-tcR" eventType="touchUpInside" id="Zob-xL-BOL"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="FCb-C7-xMh">
                                 <rect key="frame" x="0.0" y="410" width="375" height="257"/>
@@ -448,11 +463,22 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="tkW-FR-tcR" id="Rxf-0O-u5t"/>
+                                    <outlet property="delegate" destination="tkW-FR-tcR" id="r4S-Z2-Hrl"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="imageOfMovie" destination="oJF-vE-uNg" id="FhQ-zH-MnW"/>
+                        <outlet property="message" destination="KZC-XN-ZR3" id="Ld5-kA-rTe"/>
+                        <outlet property="movieSearchTextField" destination="Cbp-0I-zmx" id="88z-Jd-dQk"/>
+                        <outlet property="searchMovieButtonPressed" destination="lgJ-nd-xjV" id="8Oc-tc-G6g"/>
+                        <outlet property="tableView" destination="FCb-C7-xMh" id="Cn7-uD-chR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SsQ-UQ-o3N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

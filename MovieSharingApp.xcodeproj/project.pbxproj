@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E169B651A8FF11A001352A1 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E169B641A8FF11A001352A1 /* CreatePostViewController.swift */; };
 		7E3A3AFD1A8D85070044DFA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3A3AFC1A8D85070044DFA9 /* AppDelegate.swift */; };
 		7E3A3B041A8D85070044DFA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E3A3B021A8D85070044DFA9 /* Main.storyboard */; };
 		7E3A3B061A8D85070044DFA9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E3A3B051A8D85070044DFA9 /* Images.xcassets */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E169B641A8FF11A001352A1 /* CreatePostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		7E3A3AF71A8D85070044DFA9 /* MovieSharingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieSharingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E3A3AFB1A8D85070044DFA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E3A3AFC1A8D85070044DFA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				7E3A3B6E1A8E80550044DFA9 /* SlideMenuController.swift */,
 				7E3A3AFC1A8D85070044DFA9 /* AppDelegate.swift */,
 				7E3A3B021A8D85070044DFA9 /* Main.storyboard */,
+				7E169B641A8FF11A001352A1 /* CreatePostViewController.swift */,
 				7E3A3B701A8F2D210044DFA9 /* ImageTableViewCell.swift */,
 				7E3A3B741A8F3A510044DFA9 /* TextTableViewCell.swift */,
 				7E3A3B6C1A8E7F520044DFA9 /* MovieViewController.swift */,
@@ -317,6 +320,7 @@
 				7E3A3B751A8F3A510044DFA9 /* TextTableViewCell.swift in Sources */,
 				7E3A3B471A8D8B580044DFA9 /* Global.swift in Sources */,
 				7E3A3B691A8E7EC70044DFA9 /* LeftViewController.swift in Sources */,
+				7E169B651A8FF11A001352A1 /* CreatePostViewController.swift in Sources */,
 				7E3A3B6B1A8E7F020044DFA9 /* FeedViewController.swift in Sources */,
 				7E3A3B6F1A8E80550044DFA9 /* SlideMenuController.swift in Sources */,
 				7E3A3AFD1A8D85070044DFA9 /* AppDelegate.swift in Sources */,
@@ -534,6 +538,7 @@
 				7E3A3B1A1A8D85070044DFA9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7E3A3B1B1A8D85070044DFA9 /* Build configuration list for PBXNativeTarget "MovieSharingAppTests" */ = {
 			isa = XCConfigurationList;
@@ -542,6 +547,7 @@
 				7E3A3B1D1A8D85070044DFA9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
