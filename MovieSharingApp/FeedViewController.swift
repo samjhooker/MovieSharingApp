@@ -10,7 +10,7 @@ import UIKit
 
 class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var data: [PFObject]!
+    var data: [PFObject]! = []
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -33,8 +33,25 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        //nul
-        return UITableViewCell()
+        
+        
+        if (data[indexPath.row].objectForKey("text")[0] as Int) == 1{
+         
+            // text cell
+            var cell: TextTableViewCell! = tableView.dequeueReusableCellWithIdentifier("textCell") as TextTableViewCell
+            cell.object = self.data[indexPath.row] as PFObject
+            return cell
+        }else{
+            
+            var cell: ImageTableViewCell! = tableView.dequeueReusableCellWithIdentifier("imageCell") as ImageTableViewCell
+            cell.object = self.data[indexPath.row] as PFObject
+            return cell
+            
+            
+        }
+        
+        
+        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
