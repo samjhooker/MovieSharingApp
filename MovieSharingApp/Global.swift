@@ -45,92 +45,94 @@ class Global {
         
     }
     
-    class func returnApiData(urlString:String) -> AnyObject {
-        
-        
-        var result:AnyObject!
-    
-        
-        // 1
-        let urlAsString = urlString
-        let url = NSURL(string: urlAsString)!
-        let urlSession = NSURLSession.sharedSession()
-        
-        //2
-        let jsonQuery = urlSession.dataTaskWithURL(url, completionHandler: { data, response, error -> Void in
-            if (error != nil) {
-                println(error.localizedDescription)
-            }
-            var err: NSError?
-            
-            // 3
-            var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &err) as NSDictionary
-            if (err != nil) {
-                println("JSON Error \(err!.localizedDescription)")
-
-            }
-            
-            // 4
-            //let jsonDate: String! = jsonResult["date"] as NSString
-            //let jsonTime: String! = jsonResult["time"] as NSString
-            
-            
-            dispatch_async(dispatch_get_main_queue(), {
-                result = jsonResult
-                
-            })
-            
-            
-        })
-        // 5
-        jsonQuery.resume()
-        return result
-    }
-        
-        
-        
-    
-    
-    class func searchForMovie(name:String) -> [(name:String, imdbID:String)]? {
-        
-        
-        var returnList = [] as [(name:String, imdbID:String)]
-        
-        let nameString = name.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.LiteralSearch, range: nil)
-        let urlString = "http://www.omdbapi.com/?s=" + nameString
-        
-        var data = Global.returnApiData(urlString) as NSDictionary
-        if data.count == 0{
-            println("retuned data is nil")
-        }else{
-            
-            if data["Search"] == nil{
-                println("no results found")
-            }else{
-                var results = data["Search"] as [NSDictionary]
-                
-                for result in results as [NSDictionary]{
-                    var name = result["Name"] as String
-                    var year = result["Year"] as String
-                    var imdbID = result["imdbID"] as String
-                    
-                    //var tuple: (name:String, imdbID:String) = (name:"\(name), (\(year))", imdbID:"\(id)")
-                    returnList.append(name:"\(name), (\(year))", imdbID:"\(imdbID)")
-                }
-                
-                
-                
-            }
-            
-            
-            
-            
-        }
-        
-        
-        return returnList
-        
-    }
+//    class func returnApiData(urlString:String) -> AnyObject {
+//        
+//        
+//        var result:AnyObject!
+//    
+//        
+//        // 1
+//        let urlAsString = urlString
+//        let url = NSURL(string: urlAsString)!
+//        let urlSession = NSURLSession.sharedSession()
+//        
+//        //2
+//        let jsonQuery = urlSession.dataTaskWithURL(url, completionHandler: { data, response, error -> Void in
+//            if (error != nil) {
+//                println(error.localizedDescription)
+//            }
+//            var err: NSError?
+//            
+//            // 3
+//            var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &err) as NSDictionary
+//            if (err != nil) {
+//                println("JSON Error \(err!.localizedDescription)")
+//
+//            }
+//            
+//            // 4
+//            //let jsonDate: String! = jsonResult["date"] as NSString
+//            //let jsonTime: String! = jsonResult["time"] as NSString
+//            
+//            
+//            dispatch_async(dispatch_get_main_queue(), {
+//                result = jsonResult
+//                println(jsonResult)
+//                
+//            })
+//            
+//            
+//        })
+//        // 5
+//        jsonQuery.resume()
+//    
+//        
+//    }
+//        
+//        
+//        
+//    
+//    
+//    class func searchForMovie(name:String) -> [(name:String, imdbID:String)]? {
+//        
+//        
+//        var returnList = [] as [(name:String, imdbID:String)]
+//        
+//        let nameString = name.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.LiteralSearch, range: nil)
+//        let urlString = "http://www.omdbapi.com/?s=" + nameString
+//        
+//        var data = Global.returnApiData(urlString) as NSDictionary
+//        if data.count == 0{
+//            println("retuned data is nil")
+//        }else{
+//            
+//            if data["Search"] == nil{
+//                println("no results found")
+//            }else{
+//                var results = data["Search"] as [NSDictionary]
+//                
+//                for result in results as [NSDictionary]{
+//                    var name = result["Name"] as String
+//                    var year = result["Year"] as String
+//                    var imdbID = result["imdbID"] as String
+//                    
+//                    //var tuple: (name:String, imdbID:String) = (name:"\(name), (\(year))", imdbID:"\(id)")
+//                    returnList.append(name:"\(name), (\(year))", imdbID:"\(imdbID)")
+//                }
+//                
+//                
+//                
+//            }
+//            
+//            
+//            
+//            
+//        }
+//        
+//        
+//        return returnList
+//        
+//    }
     
     
     
