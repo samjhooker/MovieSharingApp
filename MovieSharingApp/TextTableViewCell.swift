@@ -16,14 +16,14 @@ class TextTableViewCell: UITableViewCell {
     @IBOutlet weak var timeAgoLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var message: UITextView!
-    override func awakeFromNib() {
+    override func layoutSubviews() {
         super.awakeFromNib()
         // Initialization code
         
         
-        usernameLabel.text = object.objectForKey("user").username
-        message.text = object.objectForKey("message")[0] as String
-        timeAgoLabel.text = Global.calculateTimeDifference(object.objectForKey("date")[0] as NSDate)
+        usernameLabel.text = object["user"] as? String
+        message.text = object.objectForKey("message") as String
+        timeAgoLabel.text = Global.calculateTimeDifference(object.objectForKey("date") as NSDate)
         
         
         

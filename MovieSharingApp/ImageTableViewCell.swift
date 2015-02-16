@@ -18,13 +18,13 @@ class ImageTableViewCell: UITableViewCell {
     @IBOutlet weak var timeAgoLabel: UILabel!
     //@IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var usernameTextField: UILabel!
-    override func awakeFromNib() {
+    override func layoutSubviews() {
         super.awakeFromNib()
         // Initialization code
         
-        
-        
-        let image = object.objectForKey("image")[0] as String //string url
+    
+        println(object.objectForKey("image") as String)
+        let image = object.objectForKey("image") as String //string url
         
         let url = NSURL(string: image)
         let data = NSData(contentsOfURL: url!)
@@ -32,10 +32,11 @@ class ImageTableViewCell: UITableViewCell {
             imageOfMovie.image = UIImage(data: data!)
         }
         
-        messageTextView.text = object.objectForKey("message")[0] as String
+        messageTextView.text = object.objectForKey("message") as String
         
-        timeAgoLabel.text = Global.calculateTimeDifference(object.objectForKey("date")[0] as NSDate) as String
-        usernameTextField.text = object.objectForKey("user").username
+        timeAgoLabel.text = Global.calculateTimeDifference(object.objectForKey("date") as NSDate) as String
+        //var user = object["user"] as PFUser
+        usernameTextField.text = object["user"] as? String
         
         
         

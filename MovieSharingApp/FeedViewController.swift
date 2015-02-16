@@ -21,7 +21,10 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     
-    
+    override func viewDidAppear(animated: Bool) {
+        getData()
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -34,17 +37,20 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        
-        if (data[indexPath.row].objectForKey("text")[0] as Int) == 1{
-         
+    
+        if (data[indexPath.row].objectForKey("text") as Int) == 1{
+            
             // text cell
             var cell: TextTableViewCell! = tableView.dequeueReusableCellWithIdentifier("textCell") as TextTableViewCell
             cell.object = self.data[indexPath.row] as PFObject
+            println("im here")
             return cell
         }else{
             
             var cell: ImageTableViewCell! = tableView.dequeueReusableCellWithIdentifier("imageCell") as ImageTableViewCell
             cell.object = self.data[indexPath.row] as PFObject
+            
+            
             return cell
             
             
@@ -60,12 +66,13 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        if (data[indexPath.row].objectForKey("text")[0] as Int) == 1{
+
+        if (data[indexPath.row].objectForKey("text") as Int) == 1{
             return 107
         }else{
             return 140
         }
-        
+    
     }
     
     

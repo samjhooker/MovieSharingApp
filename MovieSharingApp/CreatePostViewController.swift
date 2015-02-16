@@ -11,7 +11,10 @@ import UIKit
 class CreatePostViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     var movieList:[(name:String, imdbID:String)] = []
-    
+    var textOnly = true
+    var imdbId:String!
+    var poster:String!
+    var movieName:String!
     
     @IBOutlet weak var message: UITextView!
     @IBOutlet weak var tableView: UITableView!
@@ -39,6 +42,40 @@ class CreatePostViewController: UIViewController, UITableViewDataSource, UITable
     }
     */
     @IBAction func postButtonPressed(sender: AnyObject) {
+        
+        var object = PFObject(className:"Posts")
+        object["user"] = PFUser.currentUser().username
+        object["text"] = textOnly
+        object["date"] = NSDate()
+        object["comments"] = []
+        if textOnly == false{
+            object["image"] = poster
+            object["message"] = message.text + "    - about \(movieName)"
+            object["imdbId"] = imdbId
+        }else{
+            object["message"] = message.text
+            
+        }
+        
+        
+        
+        object.saveInBackgroundWithBlock {
+            (success: Bool, error: NSError!) -> Void in
+            if (success) {
+                
+                self.dismissViewControllerAnimated(true, completion: nil)
+                
+                
+            } else {
+                Global.showAlert("nope", message: "the post has not been failed", view: self)
+            }
+        }
+        
+        
+        
+        
+        
+        
     }
     @IBAction func backButtonPressed(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -88,7 +125,7 @@ class CreatePostViewController: UIViewController, UITableViewDataSource, UITable
                 
                 dispatch_async(dispatch_get_main_queue(), {
                     result = jsonResult as NSDictionary
-                    println(jsonResult)
+                    //println(jsonResult)
                     self.gotData(result)
                     
                 })
@@ -131,6 +168,7 @@ class CreatePostViewController: UIViewController, UITableViewDataSource, UITable
             
             if result["Search"] == nil{
                 println("no results found")
+                Global.showAlert("No Movie Found", message: "make sure your spelling is correct", view: self)
             }else{
                 var results = result["Search"] as [NSDictionary]
                 
@@ -151,6 +189,40 @@ class CreatePostViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     
+    
+    
+    func gotTappedData(result:NSDictionary){
+        if result.count == 0{
+            println("retuned tapped data is nil")
+        }else{
+            
+            if result["Poster"] == nil{
+                println("no results found")
+            }else{
+                println("loading url")
+                var imgUrl = result["Poster"] as String
+                self.poster = imgUrl
+                
+                let url = NSURL(string: imgUrl)
+                let data = NSData(contentsOfURL: url!)
+                println("data from url got")
+                if data != nil{
+                    imageOfMovie.image = UIImage(data: data!)
+                    println("image got")
+    
+                    
+                }
+                
+                
+            }
+            
+        }
+        
+    }
+    
+    
+    
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movieList.count
     }
@@ -163,11 +235,82 @@ class CreatePostViewController: UIViewController, UITableViewDataSource, UITable
         return cell
         
     }
-        
-        
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         
+        
+        
+        //var currentMessage = message.text
+        //message.text = "about \(movieList[indexPath.row].name): \(currentMessage)"
+        
+        
+        let imdbID = movieList[indexPath.row].imdbID as String
+        
+        //it is an image post
+        self.imdbId = imdbID
+        self.textOnly = false
+        
+        
+        //let nameString = movieSearchTextField.text.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        let urlString = "http://www.omdbapi.com/?i=" + imdbID + "&plot=short&r=json"
+        
+        
+        ///////////////
+        
+        var result:NSDictionary!
+        println("tapped")
+        self.movieName = movieList[indexPath.row].name as String
+        
+        // 1
+        let url = NSURL(string: urlString)!
+        let urlSession = NSURLSession.sharedSession()
+        
+        //2
+        let jsonQuery = urlSession.dataTaskWithURL(url, completionHandler: { data, response, error -> Void in
+            if (error != nil) {
+                println(error.localizedDescription)
+            }
+            var err: NSError?
+            
+            // 3
+            var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &err) as NSDictionary
+            if (err != nil) {
+                println("JSON Error \(err!.localizedDescription)")
+                
+            }
+            
+            // 4
+            //let jsonDate: String! = jsonResult["date"] as NSString
+            //let jsonTime: String! = jsonResult["time"] as NSString
+            
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                result = jsonResult as NSDictionary
+                //println(jsonResult)
+                println("data gone got")
+                self.gotTappedData(result)
+                
+            })
+            
+            
+        })
+        // 5
+        jsonQuery.resume()
+        
+        ///////////////////
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
     
     
     
