@@ -76,6 +76,37 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        
+        println("dataNeeded")
+        var dataNeeded = data[indexPath.row] as PFObject!
+        println(dataNeeded)
+        
+        
+        
+        
+        self.performSegueWithIdentifier("cellToDetail", sender: dataNeeded as PFObject)
+        
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        println("segue gon got")
+        
+        if segue.identifier == "cellToDetail"{
+            var view = segue.destinationViewController as DetailViewController
+
+            
+            
+            view.object = sender as PFObject!
+        }
+        
+    }
+    
+    
+    
     func getData(){
         
         var query = PFQuery(className: "Posts")
@@ -97,6 +128,8 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
         }
     }
+    
+
     
     
     
