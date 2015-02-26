@@ -60,9 +60,19 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     
 
     @IBAction func aboutMovieButtonPressed(sender: AnyObject) {
+        
+        self.performSegueWithIdentifier("detailToAboutMovieSegue", sender: object.objectForKey("imdbId") as String)
     }
     
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "detailToAboutMovieSegue"{
+            var scene = segue.destinationViewController as movieDetailViewController
+            scene.imdbID = sender as String
+            
+        }
+        
+        
+    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         return UITableViewCell()
