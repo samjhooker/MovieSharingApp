@@ -52,9 +52,189 @@ class movieDetailViewController: UIViewController {
     */
     
     @IBAction func importantPeopleButtonPressed(sender: AnyObject) {
+        
+        let urlString = "http://www.omdbapi.com/?i=" + self.imdbID + "&plot=full"
+        
+        
+        ///////////////
+        
+        
+        
+        // 1
+        let urlAsString = urlString
+        let url = NSURL(string: urlAsString)!
+        let urlSession = NSURLSession.sharedSession()
+        
+        //2
+        let jsonQuery = urlSession.dataTaskWithURL(url, completionHandler: { data, response, error -> Void in
+            if (error != nil) {
+                println(error.localizedDescription)
+            }
+            var err: NSError?
+            
+            // 3
+            var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &err) as NSDictionary
+            if (err != nil) {
+                println("JSON Error \(err!.localizedDescription)")
+                
+            }
+            
+            // 4
+            
+            
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                
+                //update page
+                var str = ""
+                
+                if jsonResult["Title"] != nil{
+                    str += jsonResult["Title"] as String + "\n\n"
+                }
+                if jsonResult["Released"] != nil{
+                    str += jsonResult["Released"] as String + "\n"
+                }
+                if jsonResult["Director"] != nil{
+                    var t = jsonResult["Director"] as String
+                    
+                    t = t.stringByReplacingOccurrencesOfString("Optional(\"", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                    t = t.stringByReplacingOccurrencesOfString("\")", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                    
+                    str += "DIRECTOR - \(t)  \n"
+                }
+                if jsonResult["Actors"] != nil{
+                    var t = jsonResult["Actors"] as String
+                    
+                    t = t.stringByReplacingOccurrencesOfString("Optional(\"", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                    t = t.stringByReplacingOccurrencesOfString("\")", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                    
+                    str += "CAST INCLUDES - \(t) \n"
+                }
+                if jsonResult["Writer"] != nil{
+                    var t = jsonResult["Writer"] as String
+                    
+                    t = t.stringByReplacingOccurrencesOfString("Optional(\"", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                    t = t.stringByReplacingOccurrencesOfString("\")", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                    
+                    str += "WRITERS - \(t) \n\n"
+                }
+                if jsonResult["Genre"] != nil{
+                    var t = jsonResult["Genre"] as String
+                    
+                    t = t.stringByReplacingOccurrencesOfString("Optional(\"", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                    t = t.stringByReplacingOccurrencesOfString("\")", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                    
+                    str += "GENRE - \(t) \n"
+                }
+                if jsonResult["Runtime"] != nil{
+                    var t = jsonResult["Runtime"] as String
+                    
+                    t = t.stringByReplacingOccurrencesOfString("Optional(\"", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                    t = t.stringByReplacingOccurrencesOfString("\")", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                    
+                    str += "RUNTIME - \(t) \n"
+                }
+                if jsonResult["Language"] != nil{
+                    var t = jsonResult["Language"] as String
+                    
+                    t = t.stringByReplacingOccurrencesOfString("Optional(\"", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                    t = t.stringByReplacingOccurrencesOfString("\")", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                    
+                    str += "LANGUAGE - \(t) \n"
+                }
+                if jsonResult["Country"] != nil{
+                    var t = jsonResult["Country"] as String
+                    
+                    t = t.stringByReplacingOccurrencesOfString("Optional(\"", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                    t = t.stringByReplacingOccurrencesOfString("\")", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                    
+                    str += "COUNTRY - \(t) \n\n"
+                }
+                if jsonResult["Awards"] != nil{
+                    var t = jsonResult["Awards"] as String
+                    
+                    t = t.stringByReplacingOccurrencesOfString("Optional(\"", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                    t = t.stringByReplacingOccurrencesOfString("\")", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                    
+                    str += "AWARDS - \(t) \n\n"
+                }
+                
+                println(str)
+                
+                self.showPlotPopup("About", plot: str)
+                    
+                
+                
+                
+                
+                
+            })
+            
+            
+        })
+        // 5
+        jsonQuery.resume()
+
+        
+        
+        
+        
     }
     
     @IBAction func spoilItButtonPressed(sender: AnyObject) {
+        let urlString = "http://www.omdbapi.com/?i=" + self.imdbID + "&plot=full"
+        
+        
+        ///////////////
+        
+        
+        
+        // 1
+        let urlAsString = urlString
+        let url = NSURL(string: urlAsString)!
+        let urlSession = NSURLSession.sharedSession()
+        
+        //2
+        let jsonQuery = urlSession.dataTaskWithURL(url, completionHandler: { data, response, error -> Void in
+            if (error != nil) {
+                println(error.localizedDescription)
+            }
+            var err: NSError?
+            
+            // 3
+            var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &err) as NSDictionary
+            if (err != nil) {
+                println("JSON Error \(err!.localizedDescription)")
+                
+            }
+            
+            // 4
+            
+            
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                
+                //update page
+                
+                if jsonResult["Plot"] != nil{
+                    var plot = jsonResult["Plot"] as String
+                    self.showPlotPopup("Plot", plot:plot)
+                }else{
+                    println("cannotFindPlot")
+                    
+                }
+                
+                
+ 
+                
+            })
+            
+            
+        })
+        // 5
+        jsonQuery.resume()
+        
+        
     }
     
     @IBAction func watchedItButtonPressed(sender: AnyObject) {
@@ -62,7 +242,16 @@ class movieDetailViewController: UIViewController {
     
     @IBAction func backButtonPressed(sender: AnyObject) {
         
-        self.navigationController?.popViewControllerAnimated(true)
+        
+        println("back button pressed")
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    func showPlotPopup(title:String, plot:String){
+        
+        Global.showAlert(title, message: plot, view: self)
+        
     }
     
     
