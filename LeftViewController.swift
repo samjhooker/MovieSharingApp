@@ -34,7 +34,8 @@ class LeftViewController: UIViewController {
         let feedViewController = storyboard.instantiateViewControllerWithIdentifier("FeedViewController") as FeedViewController
         self.feedViewController = UINavigationController(rootViewController: feedViewController)
         
-
+        let movieViewController = storyboard.instantiateViewControllerWithIdentifier("MovieViewController") as MovieViewController
+        self.movieViewController = UINavigationController(rootViewController: movieViewController)
         
         
     }
@@ -64,4 +65,7 @@ class LeftViewController: UIViewController {
         
     }
 
+    @IBAction func searchButtonPressed(sender: AnyObject) {
+        self.slideMenuController()?.changeMainViewController(self.movieViewController, close: true)
+    }
 }
