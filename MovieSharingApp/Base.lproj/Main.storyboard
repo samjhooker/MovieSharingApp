@@ -181,9 +181,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Tk-LI-Q4M">
-                                <rect key="frame" x="131" y="244" width="92" height="45"/>
+                                <rect key="frame" x="139" y="244" width="81" height="45"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <state key="normal" title="all Feed">
+                                <state key="normal" title="   Feed">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -191,8 +191,14 @@
                                     <action selector="feedButtonPressed:" destination="9EI-3Q-SvW" eventType="touchUpInside" id="bLH-Vm-utN"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="anyGut?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EY5-yU-EVJ">
+                                <rect key="frame" x="21" y="61" width="207" height="77"/>
+                                <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="47"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySh-Qf-9Z0">
-                                <rect key="frame" x="139" y="382" width="84" height="36"/>
+                                <rect key="frame" x="139" y="341" width="84" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" title="Search">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -203,7 +209,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64G-99-B1N">
-                                <rect key="frame" x="132" y="431" width="91" height="36"/>
+                                <rect key="frame" x="132" y="390" width="91" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" title="Friends">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -211,7 +217,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nqa-6k-0eE">
-                                <rect key="frame" x="126" y="470" width="97" height="50"/>
+                                <rect key="frame" x="126" y="429" width="97" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" title="Log out">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -221,25 +227,8 @@
                                     <action selector="logoutButtonPressed:" destination="9EI-3Q-SvW" eventType="touchUpInside" id="VpB-OJ-WPb"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="anyGut?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EY5-yU-EVJ">
-                                <rect key="frame" x="21" y="61" width="207" height="77"/>
-                                <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="47"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tSe-nL-awv">
-                                <rect key="frame" x="120" y="288" width="103" height="45"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <state key="normal" title="my Feed">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="feedButtonPressed:" destination="9EI-3Q-SvW" eventType="touchUpInside" id="bqV-XN-XEG"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Co3-fd-ekp">
-                                <rect key="frame" x="137" y="338" width="91" height="36"/>
+                                <rect key="frame" x="137" y="297" width="91" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" title="Movies">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -800,7 +789,7 @@
         <image name="menu" width="19" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Art-la-ekF"/>
+        <segue reference="e1C-GZ-4qj"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.80602019449999995" green="0.27264228439999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

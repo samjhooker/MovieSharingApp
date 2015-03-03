@@ -238,6 +238,43 @@ class movieDetailViewController: UIViewController {
     }
     
     @IBAction func watchedItButtonPressed(sender: AnyObject) {
+        
+        
+        
+        var currentUser = PFUser.currentUser()
+        
+        currentUser.fetchInBackgroundWithBlock { (object, error) -> Void in
+            if error != nil{
+                println(error)
+            }else{
+                
+                var movieList = object.objectForKey("movies") as [String]
+                
+                var flag = false
+                for i in movieList{
+                    if i == self.imdbID{
+                        flag = true
+                    }
+                }
+                if !flag{
+                    movieList.append(self.imdbID)
+                    object["movies"] = movieList
+                    object.save()
+                    Global.showAlert("Movie Watched", message: "Swell", view: self)
+                }else{
+                    Global.showAlert("Movie already watched", message: "", view: self)
+                }
+            }
+            
+            
+        }
+        
+        
+        
+        
+        
+        
+        
     }
     
     @IBAction func backButtonPressed(sender: AnyObject) {
