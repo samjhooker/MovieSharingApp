@@ -234,11 +234,17 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="moviesButtonTapped:" destination="9EI-3Q-SvW" eventType="touchUpInside" id="OUm-tg-jr5"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.80602019449999995" green="0.27264228439999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="moviesButtonPressed" destination="Co3-fd-ekp" id="dT8-Mf-Bte"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1iX-BV-4qL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -301,6 +307,72 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZN8-7f-sSo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1785.5" y="-92.5"/>
+        </scene>
+        <!--My Movies View Controller-->
+        <scene sceneID="0fT-7I-LGg">
+            <objects>
+                <viewController storyboardIdentifier="MyMoviesViewController" id="H0j-xh-LcI" customClass="MyMoviesViewController" customModule="MovieSharingApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kEF-YW-TEv"/>
+                        <viewControllerLayoutGuide type="bottom" id="9ua-Vt-vgM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nL1-BQ-Guw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="h7b-b5-Wcq">
+                                <rect key="frame" x="0.0" y="84" width="375" height="583"/>
+                                <color key="backgroundColor" red="0.92122395830000003" green="0.92122395830000003" blue="0.92122395830000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="n0X-Yc-9Qv">
+                                    <size key="itemSize" width="172" height="225"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="15j-bt-ecM" customClass="CollectionViewCell" customModule="MovieSharingApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="172" height="225"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mA4-AD-pPG">
+                                                    <rect key="frame" x="0.0" y="0.0" width="172" height="190"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3M-gl-Szn">
+                                                    <rect key="frame" x="8" y="196" width="156" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <rect key="contentStretch" x="0.0" y="0.0" width="0.29999999999999966" height="1"/>
+                                        <connections>
+                                            <outlet property="image" destination="mA4-AD-pPG" id="NJJ-aU-oCy"/>
+                                            <outlet property="nameLabel" destination="T3M-gl-Szn" id="AEh-M2-g3c"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="H0j-xh-LcI" id="a45-rV-Ka5"/>
+                                    <outlet property="delegate" destination="H0j-xh-LcI" id="Qtj-iP-nkK"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="collectionView" destination="h7b-b5-Wcq" id="0vr-3U-5Dv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RX0-z8-IC6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1796.5" y="630.5"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="RJy-bC-Itm">

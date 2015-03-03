@@ -14,6 +14,7 @@ class LeftViewController: UIViewController {
     var feedViewController: UIViewController!
     var loginViewController: UIViewController!
     var movieViewController: UIViewController!
+    var myMoviesViewController: UIViewController!
     
     override func viewDidAppear(animated: Bool) {
         
@@ -36,6 +37,9 @@ class LeftViewController: UIViewController {
         
         let movieViewController = storyboard.instantiateViewControllerWithIdentifier("MovieViewController") as MovieViewController
         self.movieViewController = UINavigationController(rootViewController: movieViewController)
+        
+        let myMoviesViewController = storyboard.instantiateViewControllerWithIdentifier("MyMoviesViewController") as MyMoviesViewController
+        self.myMoviesViewController = UINavigationController(rootViewController: myMoviesViewController)
         
         
     }
@@ -68,4 +72,13 @@ class LeftViewController: UIViewController {
     @IBAction func searchButtonPressed(sender: AnyObject) {
         self.slideMenuController()?.changeMainViewController(self.movieViewController, close: true)
     }
+    
+    @IBOutlet weak var moviesButtonPressed: UIButton!
+    @IBAction func moviesButtonTapped(sender: AnyObject) {
+        
+        self.slideMenuController()?.changeMainViewController(self.myMoviesViewController, close: true)
+        
+    }
+    
+    
 }
