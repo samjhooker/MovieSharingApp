@@ -308,7 +308,7 @@
             </objects>
             <point key="canvasLocation" x="1785.5" y="-92.5"/>
         </scene>
-        <!--My Movies View Controller-->
+        <!--My Movies-->
         <scene sceneID="0fT-7I-LGg">
             <objects>
                 <viewController storyboardIdentifier="MyMoviesViewController" id="H0j-xh-LcI" customClass="MyMoviesViewController" customModule="MovieSharingApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -321,7 +321,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="h7b-b5-Wcq">
-                                <rect key="frame" x="0.0" y="84" width="375" height="583"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.92122395830000003" green="0.92122395830000003" blue="0.92122395830000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="n0X-Yc-9Qv">
                                     <size key="itemSize" width="172" height="225"/>
@@ -365,6 +365,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="My Movies" id="nxd-aB-2Wm">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="hlY-ma-3O1">
+                            <color key="tintColor" red="0.80602019449999995" green="0.27264228439999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="menuButtonClicked:" destination="H0j-xh-LcI" id="OdC-9h-xYU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="collectionView" destination="h7b-b5-Wcq" id="0vr-3U-5Dv"/>
@@ -861,7 +869,7 @@
         <image name="menu" width="19" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="e1C-GZ-4qj"/>
+        <segue reference="Art-la-ekF"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.80602019449999995" green="0.27264228439999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -23,6 +23,11 @@ class MyMoviesViewController: UIViewController, UICollectionViewDataSource, UICo
         
         
     }
+    @IBAction func menuButtonClicked(sender: AnyObject) {
+        
+        self.slideMenuController()?.openLeft()
+        
+    }
     override func viewDidAppear(animated: Bool) {
         
         imdbArray = PFUser.currentUser().objectForKey("movies") as [String]
